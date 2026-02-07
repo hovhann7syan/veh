@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google"; // Импорт шрифтов
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({
+// 1. Настраиваем шрифт для текстов (Inter - чистый, как на iPhone)
+const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+// 2. Настраиваем шрифт для Заголовков (Space Grotesk - модный, квадратный)
+const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-space",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VEH",
-  description: "SILENCE OVER NOISE",
+  title: "VEH | ARCHIVE",
+  description: "Armenian Archive Fashion",
 };
 
 export default function RootLayout({
@@ -24,10 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="overflow-hidden">
-      <body
-        className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-[#050505] text-[#EDEDED]`}
-      >
+    // Подключаем переменные шрифтов ко всему HTML
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className="antialiased bg-white text-black font-sans">
         <Navbar />
         {children}
       </body>
