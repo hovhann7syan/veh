@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { X } from "lucide-react"; // Если нет lucide-react, используем SVG ниже
-
 interface MenuSidebarProps {
   isOpen: boolean;
   onClose: () => void;
