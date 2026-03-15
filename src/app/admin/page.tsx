@@ -24,7 +24,7 @@ export default async function AdminPage() {
 
   // Загружаем профили отдельно
   const allOrders = orders || [];
-  const userIds = [...new Set(allOrders.map(o => o.user_id).filter(Boolean))];
+  const userIds = [...new Set(allOrders.map((o: any) => o.user_id).filter(Boolean))];
   
   let profilesMap: Record<string, { full_name: string; email: string }> = {};
   if (userIds.length > 0) {
