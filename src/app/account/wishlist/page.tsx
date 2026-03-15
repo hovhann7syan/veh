@@ -21,7 +21,7 @@ interface WishlistItem {
 }
 
 function WishlistCard({ item, onRemove }: { item: WishlistItem; onRemove: (id: number) => void }) {
-  const { addItem } = useCart();
+  const { addItem, openCart } = useCart();
   const [showSizes, setShowSizes] = useState(false);
   const [added,     setAdded]     = useState(false);
   const product = item.products;
