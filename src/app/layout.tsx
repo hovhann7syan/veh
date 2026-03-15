@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google"; // Импорт шрифтов
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import CartSidebar from "@/components/CartSidebar";
+import { CartProvider } from "@/context/CartContext";
 
 // 1. Настраиваем шрифт для текстов (Inter - чистый, как на iPhone)
 const inter = Inter({ 
@@ -31,8 +33,11 @@ export default function RootLayout({
     // Подключаем переменные шрифтов ко всему HTML
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased bg-white text-black font-sans">
-        <Navbar />
-        {children}
+        <CartProvider>
+          <Navbar />
+          <CartSidebar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
